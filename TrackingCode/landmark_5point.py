@@ -6,7 +6,7 @@ import cv2
 import dlib
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor('models/shape_predictor_5_face_landmarks.dat')
+predictor = dlib.shape_predictor('../models/shape_predictor_5_face_landmarks.dat')
 
 cap = cv2.VideoCapture(0) # 'imgs/01.mp4'
 width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -50,6 +50,7 @@ while cap.isOpened():
             except:
                 pass
         cv2.imshow('result', img)
+        cv2.moveWindow('result', -70, 0)
         
     if cv2.waitKey(1) == ord('q'):
         break

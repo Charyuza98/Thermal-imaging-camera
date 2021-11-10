@@ -24,7 +24,8 @@ if not cam.isOpened():
 
 while cam.isOpened():
     status, frame = cam.read()  # ret, img
-    
+    frame = frame.astype(np.uint8)  # resize error solution
+
     if not status:  # ret==false
         print("다음 프레임을 읽을 수 없습니다.")
         exit()
